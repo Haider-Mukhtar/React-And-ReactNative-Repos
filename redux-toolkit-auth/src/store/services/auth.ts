@@ -2,6 +2,7 @@ import { setToken, setUser } from "../slices/global";
 import { api } from "./core";
 
 export const authApi = api.injectEndpoints({
+  // baseUrl: "/api/v1",
   endpoints: (build) => ({
     registerUser: build.mutation({
       query: (registerUserData: RegisterUser) => ({

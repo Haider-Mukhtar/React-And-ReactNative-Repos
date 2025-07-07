@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@/store';
 import { TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { setToken } from '@/store/slices/global';
 import { Image } from 'react-native';
 
@@ -45,10 +45,36 @@ const Home = () => {
           paddingHorizontal: 20,
           alignItems: 'center',
           borderRadius: 5,
+          marginBottom: 10,
         }}
       >
         <Text style={{ color: "#fff", fontWeight: "bold" }}>Log Out</Text>
       </TouchableOpacity>
+      <Link
+        href="/(screens)/settings"
+        style={{
+          backgroundColor: "#007AFF",
+          paddingVertical: 12,
+          paddingHorizontal: 20,
+          alignItems: 'center',
+          borderRadius: 5,
+          marginBottom: 10,
+        }}
+      >
+        <Text style={{ color: "#fff", fontWeight: "bold" }}>Settings</Text>
+      </Link>
+      <Link
+        href="/(screens)/(shopping-crud)/shopping-crud"
+        style={{
+          backgroundColor: "#007AFF",
+          paddingVertical: 12,
+          paddingHorizontal: 20,
+          alignItems: 'center',
+          borderRadius: 5,
+        }}
+      >
+        <Text style={{ color: "#fff", fontWeight: "bold" }}>Shopping CRUD</Text>
+      </Link>
     </View>
   )
 }

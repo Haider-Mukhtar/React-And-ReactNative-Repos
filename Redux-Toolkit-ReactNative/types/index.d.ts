@@ -8,6 +8,12 @@ declare type GlobalState = {
   },
 };
 
+declare type AppTheme = 'light' | 'dark' | 'system';
+
+declare type ThemeState = {
+  theme: AppTheme,
+};
+
 declare type HealthCheck = {
   "API Version": string;
   "Postgres Service": string;
@@ -44,4 +50,12 @@ declare type User = {
   username: string,
   email: string,
   image: string,
-}
+};
+
+declare type ShoppingT = {
+  id: number,
+  product_name: string,
+  quantity: string,
+  unit: string,
+  category: string,
+};

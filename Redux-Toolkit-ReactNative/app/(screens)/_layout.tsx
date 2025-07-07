@@ -9,6 +9,18 @@ export default function RootLayout() {
           title: "Home",
         }}
       />
+      <Stack.Screen
+        name="settings"
+        options={{
+          title: "Settings",
+        }}
+      />
+      <Stack.Screen
+        name="(shopping-crud)"
+        options={{
+          title: "Shopping CRUD",
+        }}
+      />
     </Stack>
   );
 }

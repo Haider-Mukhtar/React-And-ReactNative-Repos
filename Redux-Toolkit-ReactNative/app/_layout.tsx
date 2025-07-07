@@ -22,39 +22,11 @@ export default function RootLayout() {
 import { RootState } from '@/store';
 import { useSelector } from 'react-redux';
 import { ActivityIndicator } from "react-native";
+import { ThemeProvider } from "@/components/theme-context";
+import { CustomDarkTheme, CustomLightTheme } from "@/constants/navigation-themes";
+import useThemeManager from "@/hooks/useThemeManager";
 
 function RootLayoutContent() {
-
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const { token } = useSelector((state: RootState) => state.global);
-  // const [validateToken] = useLazyValidateTokenQuery();
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   const checkToken = async () => {
-  //     if (token) {
-  //       try {
-  //         const result = await validateToken().unwrap();
-  //         if (!result.valid) {
-  //           dispatch(setToken(""));
-  //           dispatch(setUser({ id: 0, username: "", email: "", image: "" }));
-  //           await AsyncStorage.clear();
-  //           setIsLoggedIn(false);
-  //         } else {
-  //           setIsLoggedIn(true);
-  //         }
-  //       } catch {
-  //         dispatch(setToken(""));
-  //         dispatch(setUser({ id: 0, username: "", email: "", image: "" }));
-  //         await AsyncStorage.clear();
-  //         setIsLoggedIn(false);
-  //       }
-  //     } else {
-  //       setIsLoggedIn(false);
-  //     }
-  //   };
-  //   checkToken();
-  // }, [token]);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -69,16 +41,25 @@ function RootLayoutContent() {
     return null;
   }
 
+  // Color Theme
+  const { colors, effectiveTheme } = useThemeManager();
+  const navigationTheme = effectiveTheme === "dark" 
+    ? CustomDarkTheme 
+    : CustomLightTheme;
+
   return (
-    <Stack screenOptions={{ headerShown: false }} >
-      {/* If guard have value true means loggedIn. So, move to Home */}
-      <Stack.Protected guard={isLoggedIn}>
-        <Stack.Screen name="(screens)" />
-      </Stack.Protected>
-      {/* If guard have value false means not loggedIn. So, move to (auth) */}
-      <Stack.Protected guard={!isLoggedIn}>
-        <Stack.Screen name="(auth)" />
-      </Stack.Protected>
-    </Stack>
+      //@ts-ignore
+      <ThemeProvider value={navigationTheme}>
+        <Stack screenOptions={{ headerShown: false }} >
+          {/* If guard have value true means loggedIn. So, move to Home */}
+          <Stack.Protected guard={isLoggedIn}>
+            <Stack.Screen name="(screens)" />
+          </Stack.Protected>
+          {/* If guard have value false means not loggedIn. So, move to (auth) */}
+          <Stack.Protected guard={!isLoggedIn}>
+            <Stack.Screen name="(auth)" />
+          </Stack.Protected>
+        </Stack>
+      </ThemeProvider>
   );
 }

@@ -169,8 +169,8 @@ const App = () => {
   // Get Secret Key
   const getOpenAIWebSocketSecretKey = async () => {
     const url = 'https://api.openai.com/v1/realtime/sessions';
-    const OPENAI_API_KEY =
-      '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';
+    // const OPENAI_API_KEY =
+    //   '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';
 
     const body = {
       model: 'gpt-4o-realtime-preview-2024-12-17',

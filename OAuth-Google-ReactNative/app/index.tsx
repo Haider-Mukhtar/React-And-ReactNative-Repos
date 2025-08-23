@@ -8,13 +8,13 @@ import {
 } from '@react-native-google-signin/google-signin';
 import { useState } from "react";
 
-GoogleSignin.configure({
-  webClientId: '374079374603-4n31ke52ke0v4n6n6nhuan30pp63rmae.apps.googleusercontent.com', 
-  scopes: ['https://www.googleapis.com/auth/drive.readonly'], 
-  offlineAccess: true, 
-  forceCodeForRefreshToken: true, 
-  iosClientId: '374079374603-kuoc5mbfkvtl53i58fhlrte49hec0u6l.apps.googleusercontent.com', 
-});
+// GoogleSignin.configure({
+//   webClientId: '374079374603-4n31ke52ke0v4n6n6nhuan30pp63rmae.apps.googleusercontent.com', 
+//   scopes: ['https://www.googleapis.com/auth/drive.readonly'], 
+//   offlineAccess: true, 
+//   forceCodeForRefreshToken: true, 
+//   iosClientId: '374079374603-kuoc5mbfkvtl53i58fhlrte49hec0u6l.apps.googleusercontent.com', 
+// });
 
 // WebClient ID = 374079374603-4n31ke52ke0v4n6n6nhuan30pp63rmae.apps.googleusercontent.com
 // WebClient Secret = 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
